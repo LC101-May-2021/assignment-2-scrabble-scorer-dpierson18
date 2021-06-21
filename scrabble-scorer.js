@@ -33,16 +33,75 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+  console.log (`Let's play some Scrabble!\n`); 
+  let word = input.question (`Enter your word: `);
+  console.log (oldScrabbleScorer(word))
+  
+    
 };
 
-let simpleScore;
+function simpleScore(word) {
+  return word.length
 
-let vowelBonusScore;
 
-let scrabbleScore;
+}
 
-const scoringAlgorithms = [];
+
+function vowelBonusScore(word) {
+  let points = 0;
+  let vowels = ["A", "E", "I", "O", "U"];
+    word = word.toUpperCase()
+  for (let i = 0; i < word.length; i++){
+    if (vowels.includes(word[i])) {
+      points = points + 3
+    
+
+  } else {
+    points = points + 1
+  }
+  }
+
+  return points
+
+}
+
+function scrabbleScore(word){
+  
+  /*let simpleObject = {
+    name:"Simple Score", 
+    description:"Each letter is worth 1 point.", 
+    scoringFunction: simpleScore
+  }
+  let vowelObject = {
+    name: "Bonus Vowels",
+    description: "Vowels are 3 pts, consonants are 1 pt.",
+    scoringFunction: bonusVowels
+  } 
+  let scrabbleObject = {
+    name: "Scrabble",
+    description: "The traditional scoring algorithm.",
+    scoringFunction: scrabble
+  }*/
+}
+
+
+  let simpleObject = {
+    name:"Simple Score", 
+    description:"Each letter is worth 1 point.", 
+    scoringFunction: simpleScore
+  };
+  let vowelObject = {
+    name: "Bonus Vowels",
+    description: "Vowels are 3 pts, consonants are 1 pt.",
+    scoringFunction: bonusVowels
+  }; 
+  let scrabbleObject = {
+    name: "Scrabble",
+    description: "The traditional scoring algorithm.",
+    scoringFunction: scrabble
+  }
+const scoringAlgorithms = [
+"simpleObject", "vowelObject", "scrabbleObject"]
 
 function scorerPrompt() {}
 
@@ -51,8 +110,9 @@ function transform() {};
 let newPointStructure;
 
 function runProgram() {
-   initialPrompt();
-   
+  //  initialPrompt();
+  let word = input.question(`Enter your word: `)
+  console.log (vowelBonusScore(word))
 }
 
 // Don't write any code below this line //
